@@ -1,17 +1,18 @@
-let loginBtn = document.querySelectorAll('#login');
-let logoutBtn = document.querySelectorAll('#logout');
+let loginBtn = document.querySelectorAll('.login');
+let logoutBtn = document.querySelectorAll('.logout');
 let profileBtn = document.querySelectorAll('.profile');
+console.log(loginBtn, logoutBtn)
 auth.onAuthStateChanged(user => {
     if(user) {
-        console.log('User Logged In')
         loginBtn.forEach(btn => btn.style.display = 'none')
         logoutBtn.forEach(btn => btn.style.display = 'initial')
         profileBtn.forEach(btn => btn.style.display = 'initial')
+        console.log('User Logged In')
     } else {
-        console.log('User Logged Out')
         loginBtn.forEach(btn => btn.style.display = 'initial')
         logoutBtn.forEach(btn => btn.style.display = 'none')
         profileBtn.forEach(btn => btn.style.display = 'none')
+        console.log('User Logged Out')
     }
 })
 
@@ -19,8 +20,18 @@ auth.onAuthStateChanged(user => {
 logoutBtn.forEach(btn => {
     btn.addEventListener('click', (e) => {
         auth.signOut().then(() => {
-            window.location.href = './login.html'
+            window.location.href = './index.html'
             alert("You've been successfully Logged Out !!")
         }).catch(err => alert(err.message));
       });
 })
+
+// logoutClass.forEach(btn => {
+//     btn.addEventListener('click', (e) => {
+//         console.log('logging out')
+//         auth.signOut().then(() => {
+//             window.location.href = './index.html'
+//             alert("You've been successfully Logged Out !!")
+//         }).catch(err => alert(err.message));
+//       });
+// })

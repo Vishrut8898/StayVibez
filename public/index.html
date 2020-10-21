@@ -46,11 +46,13 @@
                 <li class="active"><a href="./index.html">Home</a></li>
                 <li ><a href="#service">Services</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#blog">Blogs</a></li>
+                <!-- <li><a href="#blog">Blogs</a></li> -->
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="./rooms.html">Rooms</a></li>
+                <!-- <li><a href="./rooms.html">Rooms</a></li> -->
                 <li><a href="./list.html">Join Us</a></li>
-                <li><a href="./login.html">Login</a></li>
+                <li class="login"><a href="./login.html">Login</a></li>
+                <li class="logout"><a href="#">Logout</a></li>
+                <li class="profile"><a href="#">Profile</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -65,7 +67,7 @@
                     <div class="col-lg-2">
                         <div>
                             <a href="./index.html">
-                                <h2>Stay Vibez</h2>
+                                <img src="./img/logo.png" class="logy" alt="logo">
                             </a>
                         </div>
                     </div>
@@ -76,11 +78,13 @@
                                     <li class="active"><a href="./index.html">Home</a></li>
                                     <li ><a href="#service">Services</a></li>
                                     <li><a href="#about">About Us</a></li>
-                                    <li><a href="#blog">Blogs</a></li>
+                                    <!-- <li><a href="#blog">Blogs</a></li> -->
                                     <li><a href="#contact">Contact</a></li>
-                                    <li><a href="./rooms.html">Rooms</a></li>
+                                    <!-- <li><a href="./rooms.html">Rooms</a></li> -->
                                     <li><a href="./list.html">Join Us</a></li>
-                                    <li><a href="./login.html">Login</a></li>
+                                    <li class="login"><a href="./login.html">Login</a></li>
+                                    <li class="logout"><a href="#">Logout</a></li>
+                                    <li class="profile"><a href="#">Profile</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -542,6 +546,33 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-functions.js"></script>
+
+    <script>
+		// Initialize Firebase
+		const firebaseConfig = {
+			apiKey: "AIzaSyDxLozU2S0lph1hLRUMq7v8cWBqs-YezXI",
+			authDomain: "stayvibez-d4092.firebaseapp.com",
+			databaseURL: "https://stayvibez-d4092.firebaseio.com",
+			projectId: "stayvibez-d4092",
+			storageBucket: "stayvibez-d4092.appspot.com",
+			messagingSenderId: "907171155242",
+			appId: "1:907171155242:web:457209ae319385eb28e253",
+			measurementId: "G-Y1QPM38N13"
+		};
+		firebase.initializeApp(firebaseConfig);
+		
+		// make auth and firestore references
+		const auth = firebase.auth();
+		const db = firebase.firestore();
+		const functions = firebase.functions();
+	</script>
+    <script src="scripts/index.js"></script>
 
 </body>
 

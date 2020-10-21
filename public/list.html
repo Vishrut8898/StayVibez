@@ -48,9 +48,11 @@
         <nav class="mainmenu mobile-menu">
             <ul>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./rooms.html">Rooms</a></li>
+                <!-- <li><a href="./rooms.html">Rooms</a></li> -->
                 <li class="active"><a href="./list.html">Join Us</a></li>
-                <li><a href="./login.html">Login</a></li>
+                <li class="login"><a href="./login.html">Login</a></li>
+                <li class="logout"><a href="#">Logout</a></li>
+                <li class="profile"><a href="#">Profile</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -58,14 +60,14 @@
     <!-- Offcanvas Menu Section End -->
 
     <!-- Header Section Begin -->
-    <header class="header-section header-normal">
+    <header class="header-section header-normal ">
         <div class="menu-item room-menu">
             <div class="container">
-                <div class="row">
+                <div class="row flex-center" style="margin: -22px auto;">
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="./index.html">
-                                <h4>Stay Vibez</h4>
+                                <img src="./img/logo2.png" class="logy2" alt="logo">
                             </a>
                         </div>
                     </div>
@@ -74,9 +76,11 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li><a href="./index.html">Home</a></li>
-                                    <li><a href="./rooms.html">Rooms</a></li>
+                                    <!-- <li><a href="./rooms.html">Rooms</a></li> -->
                                     <li class="active"><a href="./list.html">Join Us</a></li>
-                                    <li><a href="./login.html">Login</a></li>
+                                    <li class="login"><a href="./login.html">Login</a></li>
+                                    <li class="logout"><a href="#">Logout</a></li>
+                                    <li class="profile"><a href="#">Profile</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -352,6 +356,7 @@
 		const functions = firebase.functions();
 		const storage = firebase.storage();
     </script>
+    <script src="./scripts/index.js"></script>
     <script src="./scripts/join/join.js"></script>
 
     <!-- Js Plugins -->

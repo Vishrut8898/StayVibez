@@ -12,6 +12,7 @@ loginForm.addEventListener('submit', (e) => {
     // close the signup modal & reset form
     loginForm.reset();
     window.location.href = './index.html'
+    alert('You have been successfully Logged In !!')
   }).catch(err => {
     console.log(err.message);
   });

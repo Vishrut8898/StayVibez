@@ -19,6 +19,7 @@ signupForm.addEventListener('submit', (e) => {
       // close the signup modal & reset form
     signupForm.reset();
     window.location.href = './login.html';
+    alert('Congrats !! You have been successfully registered !!')
   }).catch(err => {
       console.log(err.message);
   });
