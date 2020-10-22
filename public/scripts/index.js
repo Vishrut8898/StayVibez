@@ -1,7 +1,7 @@
 let loginBtn = document.querySelectorAll('.login');
 let logoutBtn = document.querySelectorAll('.logout');
-let profileBtn = document.querySelectorAll('.profile');
-console.log(loginBtn, logoutBtn)
+let profileBtn = document.querySelectorAll('.pro');
+
 auth.onAuthStateChanged(user => {
     if(user) {
         loginBtn.forEach(btn => btn.style.display = 'none')
@@ -25,13 +25,3 @@ logoutBtn.forEach(btn => {
         }).catch(err => alert(err.message));
       });
 })
-
-// logoutClass.forEach(btn => {
-//     btn.addEventListener('click', (e) => {
-//         console.log('logging out')
-//         auth.signOut().then(() => {
-//             window.location.href = './index.html'
-//             alert("You've been successfully Logged Out !!")
-//         }).catch(err => alert(err.message));
-//       });
-// })

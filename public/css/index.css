@@ -218,9 +218,6 @@ input::-webkit-inner-spin-button {
     padding: 0;
     margin: 0;
 }
-.logy {
-    padding: 1rem auto;
-}
 @media(max-width: 480px) {
   .img-thumbnail{
     height: 200px;
@@ -242,12 +239,6 @@ input::-webkit-inner-spin-button {
     }
     .list form .select-tags {
         grid-template-columns: repeat(3, 1fr);
-    }
-    .logy {
-        width: 120px;
-    }
-    .logy2 {
-        width: 120px;
     }
 }
 

@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/navbar.css" type="text/css">
 </head>
 
 <body>
@@ -33,65 +34,14 @@
     </div>
 
     <!-- Offcanvas Menu Section Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="canvas-open">
-        <i class="icon_menu"></i>
-    </div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="canvas-close">
-            <i class="icon_close"></i>
-        </div>
-        <nav class="mainmenu mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li ><a href="#service">Services</a></li>
-                <li><a href="#about">About Us</a></li>
-                <!-- <li><a href="#blog">Blogs</a></li> -->
-                <li><a href="#contact">Contact</a></li>
-                <!-- <li><a href="./rooms.html">Rooms</a></li> -->
-                <li><a href="./list.html">Join Us</a></li>
-                <li class="login"><a href="./login.html">Login</a></li>
-                <li class="logout"><a href="#">Logout</a></li>
-                <li class="profile"><a href="#">Profile</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-    </div>
+    
+    <header class="homepage-head-respo">
+    </header>
+
     <!-- Offcanvas Menu Section End -->
 
     <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="menu-item menu">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div>
-                            <a href="./index.html">
-                                <img src="./img/logo.png" class="logy" alt="logo">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="nav-menu">
-                            <nav class="mainmenu">
-                                <ul>
-                                    <li class="active"><a href="./index.html">Home</a></li>
-                                    <li ><a href="#service">Services</a></li>
-                                    <li><a href="#about">About Us</a></li>
-                                    <!-- <li><a href="#blog">Blogs</a></li> -->
-                                    <li><a href="#contact">Contact</a></li>
-                                    <!-- <li><a href="./rooms.html">Rooms</a></li> -->
-                                    <li><a href="./list.html">Join Us</a></li>
-                                    <li class="login"><a href="./login.html">Login</a></li>
-                                    <li class="logout"><a href="#">Logout</a></li>
-                                    <li class="profile"><a href="#">Profile</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <header class="homepage-head">
     </header>
     <!-- Header End -->
 
@@ -547,6 +497,8 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
+    <script src="scripts/navbar.js"></script>
+
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
@@ -571,7 +523,7 @@
 		const auth = firebase.auth();
 		const db = firebase.firestore();
 		const functions = firebase.functions();
-	</script>
+    </script>
     <script src="scripts/index.js"></script>
 
 </body>
