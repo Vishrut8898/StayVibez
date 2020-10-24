@@ -1,7 +1,6 @@
-db.collection('partners').onSnapshot(snapshot => {
-    let data = snapshot.docs
-    // setup partners
-    const accordion = document.querySelector('.accordion');
+// setup partners
+const accordion = document.querySelector('.accordion');
+function setupPartners(data) {
     let html = '';
     if(data.length) {
         data.forEach((doc, index) => {
@@ -16,8 +15,8 @@ db.collection('partners').onSnapshot(snapshot => {
             <div class="collapse" id="collapse${index}" data-parent="#accordionExample">
                 <div class="card-body">
                     <table class="allPartners-table">
-                    <tr><strong>Partner User ID: </strong> <p><input type="text" disabled class="text-box" name="id" id="id" value="${doc.id}"></p></tr>
                         <tr><strong>Farm House Name: </strong> <p><input type="text" disabled class="text-box" name="title" id="title" value="${partner.title}"></p></tr>
+                        <tr><strong>Partner User ID: </strong> <p><input type="text" disabled class="text-box" name="id" id="id" value="${doc.id}"></p></tr>
                         <tr><strong>Partner First Name: </strong> <p><input type="text" disabled class="text-box" name="fname" id="fname" value="${partner.firstName}"></p></tr>
                         <tr><strong>Partner Last Name: </strong> <p><input type="text" disabled class="text-box" name="lname" id="lname" value="${partner.lastName}"></p></tr>
                         <tr><strong>Partner Email: </strong> <p><input type="text" disabled class="text-box" name="email" id="email" value="${partner.email}"></p></tr>
@@ -42,7 +41,7 @@ db.collection('partners').onSnapshot(snapshot => {
                     <button style="outline: none;" class="btn btn-primary hide" id="update">Update</button>
                     <button style="outline: none;" class="btn btn-success" id="verify">Verify</button>
                     <button style="outline: none;" class="btn btn-warning" id="dont-verify">Don't Verify</button>
-                    <button style="outline: none;" class="btn btn-danger" id="delete">Delete</button>
+                    <button style="outline: none;" class="btn btn-danger" id="dont-verify">Delete</button>
                 </div>
             </div>
         </div>
@@ -51,13 +50,12 @@ db.collection('partners').onSnapshot(snapshot => {
         })
         accordion.innerHTML = html;
         const editBtn = document.querySelectorAll('#edit');
-        const updateBtn = document.querySelectorAll('#update');
-        const deleteBtn = document.querySelectorAll('#delete');
-        const inputTag = document.querySelector('.card-body table p')
+		const updateBtn = document.querySelectorAll('#update');
+		const inputTag = document.querySelectorAll('.text-box')
 
         editBtn.forEach(edit => {
             edit.addEventListener('click', () => {
-                edit.parentElement.querySelectorAll('.text-box').forEach(input => {
+                inputTag.forEach(input => {
                     input.disabled = false;
                 })
                 edit.classList.add('hide');
@@ -69,79 +67,23 @@ db.collection('partners').onSnapshot(snapshot => {
 
         updateBtn.forEach(update => {
             update.addEventListener('click', () => {
-                const confirmPopUp = confirm("Update The Given Values ?");
-                if(confirmPopUp == true) {
-                    update.parentElement.querySelectorAll('.text-box').forEach(input => {
-                        input.disabled = true;
-                    })
-                    let updateId = update.parentElement.querySelector('.text-box').value;
-                    const dt = update.parentElement;
-                    db.collection('partners').doc(updateId).update({
-                        
-                        title: dt.querySelector('#title').value,
-                        firstName: dt.querySelector('#fname').value,
-                        lastName: dt.querySelector('#lname').value,
-                        email: dt.querySelector('#email').value,
-                        phone: dt.querySelector('#phone').value,
-                        location: dt.querySelector('#location').value,
-                        essentials: dt.querySelector('#essentials').value,
-                        pets: dt.querySelector('#pets').value,
-                        airCondition: dt.querySelector('#ac').value,
-                        pool: dt.querySelector('#pool').value,
-                        rooms: dt.querySelector('#rooms').value,
-                        staff: dt.querySelector('#staff').value,
-                        kitchenAminities: dt.querySelector('#ka').value,
-                        firstAidKit: dt.querySelector('#fak').value,
-                        outdoor: dt.querySelector('#outdoor').value,
-                        television: dt.querySelector('#tv').value,
-                        wifi: dt.querySelector('#wifi').value,
-                        parking: dt.querySelector('#parking').value,
-                        propertyType: dt.querySelector('#type').value,
-                        additionalInfo: dt.querySelector('#info').value,
-    
-                    }).then(() => {
-                        alert('Your Data has been Updated !!')
-                    });
-                    editBtn.forEach(edit => {
-                        edit.classList.remove('hide');
-                    })
-                    update.classList.add('hide');
-                } else {
-                    editBtn.forEach(edit => {
-                        edit.classList.remove('hide');
-                    })
-                    update.classList.add('hide');
-                }
+                inputTag.forEach(input => {
+                    input.disabled = true;
+                })
+                editBtn.forEach(edit => {
+                    edit.classList.remove('hide');
+                })
+                update.classList.add('hide');
             })
         })
+    }
+}
 
-        deleteBtn.forEach(dlt => {
-            dlt.addEventListener('click', () => {
-                const confirmPopUp = confirm('Are You Sure ?');
-                if(confirmPopUp == true) {
-                    const dltId = dlt.parentElement.querySelector('.text-box').value;
-                    db.collection('partners').doc(dltId).delete()
+db.collection('partners').doc(dltId).delete()
                     .then(() => {
                         alert('Your Data Has Been Deleted !!')
                     });
-                }
-            })
-        })
-    }
-}, err => console.log(err));
 
-// search engine
-var searchBar = document.querySelector('#partnerSearch');
-searchBar.addEventListener('keyup', (e) => {
-  const term = e.target.value.toLowerCase();
-  const partners = document.querySelectorAll('.card-header h5 button')
-  Array.from(partners).forEach((partner) => {
-    const title = partner.textContent;
-    if (title.toLowerCase().indexOf(term) != -1) {
-      partner.style.display = "block";
-    }
-    else {
-      partner.style.display = "none";
-    }
-  })
-})
+                    
+
+                

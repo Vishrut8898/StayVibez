@@ -7,7 +7,7 @@ menuRespo.innerHTML = `
     <div class="menu-respo">
         <ul>
             <li class="pro"><a href="#">Profile</a></li>
-            <li><a href="#">Home</a></li>
+            <li><a href="home.html">Home</a></li>
             <li class="abt"><a href="#about">About</a></li>
             <li class="ser"><a href="#service">Services</a></li>
             <li class="blg"><a href="#blog">Blogs</a></li>
